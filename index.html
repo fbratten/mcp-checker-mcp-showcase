@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCP Server Checker - Protocol Compliance & Quality Validation</title>
+  <meta name="description" content="Validate MCP servers for protocol compliance, code quality, security, and LLM ergonomics. Two-score system with actionable fix packs.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+          colors: {
+            ink: { 900: '#020617', 950: '#01040f' },
+            accent: { light: '#38bdf8', DEFAULT: '#0ea5e9' },
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-ink-950 text-slate-300 antialiased">
+
+  <!-- Hero -->
+  <section class="relative min-h-screen flex items-center px-6 lg:px-8 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-cyan-500/5"></div>
+    <div class="max-w-6xl mx-auto w-full relative z-10 py-20">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-mono uppercase tracking-wider">MCP Tool</span>
+            <span class="text-xs text-slate-500 font-mono">173 tests passing</span>
+          </div>
+          <h1 class="text-4xl md:text-5xl font-light text-white leading-tight mb-6">
+            MCP Server<br/>Checker
+          </h1>
+          <p class="text-xl text-slate-300 leading-relaxed font-light mb-4">
+            Validate your MCP servers for protocol compliance, code quality, security, and LLM ergonomics.
+          </p>
+          <p class="text-slate-400 leading-relaxed mb-8">
+            Two-score validation system with 50+ checks across 9 categories. Get a compliance gate, maturity score, and actionable fix packs - not just pass/fail.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a href="#demo" class="px-6 py-3 bg-emerald-500 text-white rounded-lg font-semibold hover:bg-emerald-400 transition-colors">
+              Try Demo
+            </a>
+            <a href="#features" class="px-6 py-3 border border-white/10 bg-white/5 text-white rounded-lg hover:bg-white/10 transition-colors">
+              View Features
+            </a>
+          </div>
+        </div>
+        <div class="hidden lg:block">
+          <div class="bg-ink-900 border border-white/10 rounded-2xl p-6 font-mono text-sm shadow-2xl">
+            <div class="flex items-center gap-2 mb-4 pb-3 border-b border-white/5">
+              <div class="w-3 h-3 rounded-full bg-red-500/30"></div>
+              <div class="w-3 h-3 rounded-full bg-yellow-500/30"></div>
+              <div class="w-3 h-3 rounded-full bg-green-500/30"></div>
+              <span class="ml-2 text-slate-500 text-xs">check_server</span>
+            </div>
+            <div class="space-y-2 text-xs">
+              <div><span class="text-slate-500">&gt;</span> <span class="text-emerald-400">Compliance:</span> <span class="text-white">PASS</span></div>
+              <div><span class="text-slate-500">&gt;</span> <span class="text-cyan-400">Maturity:</span> <span class="text-white">87%</span> <span class="text-emerald-400">PRODUCTION_READY</span></div>
+              <div class="pt-2 text-slate-500">--- Domain Scores ---</div>
+              <div><span class="text-slate-500">&gt;</span> Runtime: <span class="text-emerald-400">92%</span> <span class="text-slate-600">(weight: 40%)</span></div>
+              <div><span class="text-slate-500">&gt;</span> Code Analysis: <span class="text-yellow-400">78%</span> <span class="text-slate-600">(weight: 25%)</span></div>
+              <div><span class="text-slate-500">&gt;</span> Best Practices: <span class="text-emerald-400">85%</span> <span class="text-slate-600">(weight: 20%)</span></div>
+              <div><span class="text-slate-500">&gt;</span> LLM Ergonomics: <span class="text-emerald-400">90%</span> <span class="text-slate-600">(weight: 15%)</span></div>
+              <div class="pt-2 text-slate-500">--- Fix Packs ---</div>
+              <div><span class="text-slate-500">&gt;</span> <span class="text-yellow-400">docs_baseline</span>: 3 items <span class="text-slate-600">(effort: low)</span></div>
+              <div><span class="text-slate-500">&gt;</span> <span class="text-yellow-400">schema_hardening</span>: 2 items <span class="text-slate-600">(effort: medium)</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Two-Score System -->
+  <section id="scoring" class="py-24 px-6 lg:px-8 border-t border-white/5">
+    <div class="max-w-6xl mx-auto">
+      <span class="font-mono text-xs text-emerald-400 uppercase tracking-[0.2em] mb-4 block">Validation Model</span>
+      <h2 class="text-3xl font-light text-white mb-4">Two-Score System</h2>
+      <p class="text-slate-400 max-w-2xl mb-12">Not just pass/fail. The checker separates hard compliance requirements from quality maturity, so you know exactly where you stand.</p>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="rounded-2xl border border-white/10 bg-white/[0.02] p-8">
+          <h3 class="text-xl font-medium text-white mb-4">Compliance Score</h3>
+          <p class="text-slate-400 mb-6">Binary gate. Hard requirements that must pass - handshake, JSON-RPC envelope, no stdout corruption, no hardcoded secrets. Fail any one and the server is NON_COMPLIANT.</p>
+          <div class="flex gap-4">
+            <span class="px-4 py-2 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-mono text-sm">PASS</span>
+            <span class="px-4 py-2 rounded-lg bg-red-500/10 text-red-400 border border-red-500/20 font-mono text-sm">FAIL</span>
+          </div>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/[0.02] p-8">
+          <h3 class="text-xl font-medium text-white mb-4">Maturity Score</h3>
+          <p class="text-slate-400 mb-6">Quality gradient 0-100%. Weighted across four domains: Runtime (40%), Code Analysis (25%), Best Practices (20%), LLM Ergonomics (15%).</p>
+          <div class="flex gap-2 flex-wrap">
+            <span class="px-3 py-1 rounded bg-emerald-500/10 text-emerald-400 text-xs font-mono">CERTIFIED 95%+</span>
+            <span class="px-3 py-1 rounded bg-cyan-500/10 text-cyan-400 text-xs font-mono">PRODUCTION 85%+</span>
+            <span class="px-3 py-1 rounded bg-yellow-500/10 text-yellow-400 text-xs font-mono">FUNCTIONAL 70%+</span>
+            <span class="px-3 py-1 rounded bg-orange-500/10 text-orange-400 text-xs font-mono">DEVELOPMENT 50%+</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="py-24 px-6 lg:px-8 border-t border-white/5">
+    <div class="max-w-6xl mx-auto">
+      <span class="font-mono text-xs text-emerald-400 uppercase tracking-[0.2em] mb-4 block">Capabilities</span>
+      <h2 class="text-3xl font-light text-white mb-12">What It Checks</h2>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="rounded-xl border border-white/8 bg-white/[0.02] p-6">
+          <div class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400 mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <h3 class="text-white font-medium mb-2">Protocol Compliance</h3>
+          <p class="text-sm text-slate-400">JSON-RPC 2.0, MCP handshake, capability negotiation, ID correlation, error codes.</p>
+        </div>
+        <div class="rounded-xl border border-white/8 bg-white/[0.02] p-6">
+          <div class="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400 mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+          </div>
+          <h3 class="text-white font-medium mb-2">Code Quality</h3>
+          <p class="text-sm text-slate-400">Structure analysis, documentation coverage, schema validation, pattern detection.</p>
+        </div>
+        <div class="rounded-xl border border-white/8 bg-white/[0.02] p-6">
+          <div class="w-10 h-10 rounded-lg bg-red-500/10 flex items-center justify-center text-red-400 mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="text-white font-medium mb-2">Security Scanning</h3>
+          <p class="text-sm text-slate-400">Hardcoded secrets, injection vulnerabilities, path traversal, input validation.</p>
+        </div>
+        <div class="rounded-xl border border-white/8 bg-white/[0.02] p-6">
+          <div class="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400 mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h3 class="text-white font-medium mb-2">LLM Ergonomics</h3>
+          <p class="text-sm text-slate-400">Tool naming conventions, description quality, schema usability, cognitive load assessment.</p>
+        </div>
+        <div class="rounded-xl border border-white/8 bg-white/[0.02] p-6">
+          <div class="w-10 h-10 rounded-lg bg-yellow-500/10 flex items-center justify-center text-yellow-400 mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3 class="text-white font-medium mb-2">Actionable Fix Packs</h3>
+          <p class="text-sm text-slate-400">Grouped remediation suggestions with effort estimates. Know what to fix and how hard it is.</p>
+        </div>
+        <div class="rounded-xl border border-white/8 bg-white/[0.02] p-6">
+          <div class="w-10 h-10 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-400 mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <h3 class="text-white font-medium mb-2">Validation Profiles</h3>
+          <p class="text-sm text-slate-400">Four profiles from lenient (dev) to paranoid (max compliance). Match validation to your stage.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Demo -->
+  <section id="demo" class="py-24 px-6 lg:px-8 border-t border-white/5">
+    <div class="max-w-4xl mx-auto">
+      <span class="font-mono text-xs text-emerald-400 uppercase tracking-[0.2em] mb-4 block">Interactive</span>
+      <h2 class="text-3xl font-light text-white mb-4">Validation Simulator</h2>
+      <p class="text-slate-400 mb-8">Select a profile and see how validation results change. This simulates the check_server output.</p>
+
+      <div class="rounded-2xl border border-white/10 bg-ink-900 overflow-hidden">
+        <div class="flex border-b border-white/10">
+          <button onclick="setProfile('lenient')" id="btn-lenient" class="profile-btn px-4 py-3 text-xs font-mono uppercase tracking-wider text-slate-400 hover:text-white border-b-2 border-transparent transition-all">Lenient</button>
+          <button onclick="setProfile('standard')" id="btn-standard" class="profile-btn px-4 py-3 text-xs font-mono uppercase tracking-wider text-emerald-400 border-b-2 border-emerald-400 transition-all">Standard</button>
+          <button onclick="setProfile('strict')" id="btn-strict" class="profile-btn px-4 py-3 text-xs font-mono uppercase tracking-wider text-slate-400 hover:text-white border-b-2 border-transparent transition-all">Strict</button>
+          <button onclick="setProfile('paranoid')" id="btn-paranoid" class="profile-btn px-4 py-3 text-xs font-mono uppercase tracking-wider text-slate-400 hover:text-white border-b-2 border-transparent transition-all">Paranoid</button>
+        </div>
+        <div class="p-6 font-mono text-sm" id="demo-output">
+          <!-- Filled by JS -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Getting Started -->
+  <section class="py-24 px-6 lg:px-8 border-t border-white/5">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-light text-white mb-8">Getting Started</h2>
+      <div class="rounded-2xl border border-white/10 bg-ink-900 p-6 font-mono text-sm space-y-3">
+        <div class="text-slate-500"># Add to your .mcp.json</div>
+        <div><span class="text-cyan-400">"mcp-server-checker"</span>: {</div>
+        <div class="pl-4"><span class="text-cyan-400">"command"</span>: <span class="text-emerald-400">"python"</span>,</div>
+        <div class="pl-4"><span class="text-cyan-400">"args"</span>: [<span class="text-emerald-400">"-m"</span>, <span class="text-emerald-400">"mcp_server_checker.server"</span>]</div>
+        <div>}</div>
+        <div class="pt-4 text-slate-500"># Then use check_server tool</div>
+        <div><span class="text-yellow-400">check_server</span>(server_path=<span class="text-emerald-400">"python -m my_mcp.server"</span>, profile=<span class="text-emerald-400">"standard"</span>)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 px-6 border-t border-white/5">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+      <div>
+        <span class="text-white font-medium">MCP Server Checker</span>
+        <p class="text-xs text-slate-500 mt-1">Part of the Adaptivearts.ai research ecosystem</p>
+      </div>
+      <div class="flex gap-6 text-xs text-slate-500">
+        <a href="https://adaptivearts.ai" class="hover:text-white transition-colors">Adaptivearts.ai</a>
+        <a href="https://github.com/fbratten" class="hover:text-white transition-colors">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const profiles = {
+      lenient: {
+        min: 50, compliance: 'PASS', maturity: 72, badge: 'FUNCTIONAL',
+        badgeColor: 'text-yellow-400',
+        runtime: 85, code: 58, practices: 65, ergonomics: 70,
+        fixes: [
+          { name: 'docs_baseline', items: 5, effort: 'low' },
+          { name: 'schema_hardening', items: 3, effort: 'medium' },
+          { name: 'security_baseline', items: 2, effort: 'medium' },
+        ],
+        verdict: 'PASS - Server meets lenient profile requirements'
+      },
+      standard: {
+        min: 70, compliance: 'PASS', maturity: 72, badge: 'FUNCTIONAL',
+        badgeColor: 'text-yellow-400',
+        runtime: 85, code: 58, practices: 65, ergonomics: 70,
+        fixes: [
+          { name: 'docs_baseline', items: 5, effort: 'low' },
+          { name: 'schema_hardening', items: 3, effort: 'medium' },
+          { name: 'security_baseline', items: 2, effort: 'medium' },
+        ],
+        verdict: 'PASS - Server meets standard profile (barely)'
+      },
+      strict: {
+        min: 85, compliance: 'PASS', maturity: 72, badge: 'FUNCTIONAL',
+        badgeColor: 'text-red-400',
+        runtime: 85, code: 58, practices: 65, ergonomics: 70,
+        fixes: [
+          { name: 'docs_baseline', items: 5, effort: 'low' },
+          { name: 'schema_hardening', items: 3, effort: 'medium' },
+          { name: 'security_baseline', items: 2, effort: 'medium' },
+          { name: 'llm_polish', items: 4, effort: 'low' },
+          { name: 'error_hygiene', items: 3, effort: 'medium' },
+        ],
+        verdict: 'FAIL - Maturity 72% below strict minimum 85%'
+      },
+      paranoid: {
+        min: 95, compliance: 'PASS', maturity: 72, badge: 'FUNCTIONAL',
+        badgeColor: 'text-red-400',
+        runtime: 85, code: 58, practices: 65, ergonomics: 70,
+        fixes: [
+          { name: 'docs_baseline', items: 5, effort: 'low' },
+          { name: 'schema_hardening', items: 3, effort: 'medium' },
+          { name: 'security_baseline', items: 2, effort: 'medium' },
+          { name: 'llm_polish', items: 4, effort: 'low' },
+          { name: 'error_hygiene', items: 3, effort: 'medium' },
+          { name: 'lifecycle_compliance', items: 2, effort: 'high' },
+          { name: 'transport_hardening', items: 1, effort: 'high' },
+        ],
+        verdict: 'FAIL - Maturity 72% far below paranoid minimum 95%'
+      }
+    };
+
+    function setProfile(name) {
+      document.querySelectorAll('.profile-btn').forEach(b => {
+        b.classList.remove('text-emerald-400', 'border-emerald-400');
+        b.classList.add('text-slate-400', 'border-transparent');
+      });
+      const btn = document.getElementById('btn-' + name);
+      btn.classList.remove('text-slate-400', 'border-transparent');
+      btn.classList.add('text-emerald-400', 'border-emerald-400');
+
+      const p = profiles[name];
+      const pass = p.maturity >= p.min;
+
+      document.getElementById('demo-output').innerHTML = `
+        <div class="space-y-2">
+          <div><span class="text-slate-500">Profile:</span> <span class="text-white">${name}</span> <span class="text-slate-600">(minimum: ${p.min}%)</span></div>
+          <div class="pt-2"><span class="text-slate-500">Compliance:</span> <span class="text-emerald-400">${p.compliance}</span></div>
+          <div><span class="text-slate-500">Maturity:</span> <span class="text-white">${p.maturity}%</span> <span class="${p.badgeColor}">${p.badge}</span></div>
+          <div class="pt-3 text-slate-600">--- Domain Scores ---</div>
+          <div><span class="text-slate-500">Runtime (40%):</span> <span class="${p.runtime >= 80 ? 'text-emerald-400' : 'text-yellow-400'}">${p.runtime}%</span></div>
+          <div><span class="text-slate-500">Code Analysis (25%):</span> <span class="${p.code >= 70 ? 'text-emerald-400' : 'text-yellow-400'}">${p.code}%</span></div>
+          <div><span class="text-slate-500">Best Practices (20%):</span> <span class="${p.practices >= 70 ? 'text-emerald-400' : 'text-yellow-400'}">${p.practices}%</span></div>
+          <div><span class="text-slate-500">LLM Ergonomics (15%):</span> <span class="${p.ergonomics >= 70 ? 'text-emerald-400' : 'text-yellow-400'}">${p.ergonomics}%</span></div>
+          <div class="pt-3 text-slate-600">--- Fix Packs (${p.fixes.length}) ---</div>
+          ${p.fixes.map(f => `<div><span class="text-yellow-400">${f.name}</span>: ${f.items} items <span class="text-slate-600">(effort: ${f.effort})</span></div>`).join('')}
+          <div class="pt-3"><span class="text-slate-500">Verdict:</span> <span class="${pass ? 'text-emerald-400' : 'text-red-400'}">${p.verdict}</span></div>
+        </div>
+      `;
+    }
+
+    // Initialize
+    setProfile('standard');
+  </script>
+</body>
+</html>
