@@ -52,3 +52,7 @@ MCP Server Checker validates MCP servers against the MCP Protocol Specification 
 ## Part of
 
 [Adaptivearts.ai](https://adaptivearts.ai) - Independent AI Research Initiative
+
+### Rebuild the local styles
+
+Run `npm ci` followed by `npm run build:css` from the repository root after changing utility classes. Commit the regenerated `assets/site-utilities.css` with the page edits.
